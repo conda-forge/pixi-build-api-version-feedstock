@@ -1,31 +1,33 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 context:
   name: pixi-build-api-version
-  version: "4"
+  version: "5"
 
 package:
   name: ${{ name }}
   version: ${{ version }}
 
-source:
-  url: https://github.com/prefix-dev/pixi-build-backends/archive/refs/tags/${{ name }}-v${{ version }}.tar.gz
-  sha256: 9ee6becbbfe2ef2d732afb4e9491dcf64525d0fa96c2112d797f859cd2086f7a
-
 build:
   number: 0
   noarch: generic
 
+tests:
+  - package_contents:
+      strict: true
+      files: []
+
 about:
-  homepage: https://github.com/prefix-dev/pixi-build-backends
+  homepage: https://github.com/prefix-dev/pixi
   summary: The protocol version for pixi build backends.
   description: |
     This package is used to define the API version of the protocol used by pixi build backends.
   license: BSD-3-Clause
   license_file:
     - LICENSE
-  documentation: https://prefix-dev.github.io/pixi-build-backends
-  repository: https://github.com/prefix-dev/pixi-build-backends
+  documentation: https://pixi.prefix.dev/latest/
+  repository: https://github.com/prefix-dev/pixi
 
 extra:
   recipe-maintainers:
     - baszalmstra
+    - Hofer-Julian
